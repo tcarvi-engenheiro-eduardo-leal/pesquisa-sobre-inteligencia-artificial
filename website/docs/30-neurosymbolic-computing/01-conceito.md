@@ -47,9 +47,9 @@
 
 ### Estado da Arte do Processamento Neurosimbólico (fluxo com Sistema 1 & 2)
 - Arquiteturas Possíveis e já implementadas na atualidade:
-    - Estado da Arte: Padrão Neural-as-Predicate
+    - Estado da Arte: **Padrão** ***Neural-as-Predicate***
         - Exemplos: DeepProbLog, NeurASP e DeepStochLog
-        - *DeepProbLog***
+        - ***DeepProbLog***
             - ProbLog é uma extensão probabilistica para o processamento da linguagem Prolog.
             - Já DeepProbLog é uma extensão do ProbLog em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
             - Sistema 1:
@@ -68,7 +68,7 @@
             - Limitações:
                 - Inferência pode ser computacionalmente pesada
                 - Escalabilidade ainda é um desafio
-    - Estado da Arte: Padrão Logic-as-Loss or Logic-as-Constraint
+    - Estado da Arte: **Padrão** ***Logic-as-Loss or Logic-as-Constraint***
         - Exemplos: LTN, Semantic Loss, DL2 e SBR.
         - **LTN** (***Logic Tensor Networks***)
             - LTN reinterpreta o processamento da lógica de primeira ordem:
@@ -96,7 +96,18 @@
         - **Como codificar esta integração?** 
     - **Qual a diferença entre a codificação do fluxo ACT-R e do fluxo Soar?**
         - Posso inovar a integração ACT-R e Soar com a computação qunântica (IBM), para maior escalabilidade, velocidade?
+<!-- Tabela comparativa solicitada: começa aqui -->
+| **Padrão** | **É Explicitamente Simbólico** | **Faz Processamento Diferenciável** | **Faz Processamento Probabilístico** | **Status Atual** |
+|---|:---:|:---:|:---:|:---:|
+| Neural-as_Predicate | ![](/img/icons/check.svg "Sim") | ![](/img/icons/check.svg "Sim") | ![](/img/icons/check.svg "Sim — valores contínuos / fuzzy") | ![](/img/icons/status-emerging.svg "Emergente") |
+| Logic-as-Loss | ![](/img/icons/check.svg "Sim — lógica expressa como restrição") | ![](/img/icons/check.svg "Sim — perda diferenciável") | ![](/img/icons/partial.svg "Parcial — pode usar soft truth / fuzzy") | ![](/img/icons/status-emerging.svg "Uso em pesquisa e algumas aplicações") |
+| Symbolic-Prior | ![](/img/icons/check.svg "Sim — conhecimento simbólico como prior") | ![](/img/icons/partial.svg "Parcial — depende da implementação (soft priors vs rígido)") | ![](/img/icons/partial.svg "Parcial — priors podem ser probabilísticos") | ![](/img/icons/status-adopted.svg "Adotado / usado em aplicações") |
+| Neural Reasoners | ![](/img/icons/cross.svg "Não necessariamente — geralmente subsimbólico") | ![](/img/icons/check.svg "Sim") | ![](/img/icons/partial.svg "Parcial — saída probabilística possível") | ![](/img/icons/status-emerging.svg "Amplo uso em pesquisa e aplicações") |
+| Program Induction | ![](/img/icons/check.svg "Sim — programas como estruturas simbólicas") | ![](/img/icons/partial.svg "Parcial — interpretadores diferenciáveis existem") | ![](/img/icons/partial.svg "Parcial — pode ser probabilístico") | ![](/img/icons/status-emerging.svg "Pesquisa ativa / casos de uso específicos") |
+| LLM + Símbolos | ![](/img/icons/check.svg "Sim — integração com módulos simbólicos") | ![](/img/icons/partial.svg "Parcial — LLM é diferenciável; módulos simbólicos podem não ser") | ![](/img/icons/check.svg "Sim — LLMs são modelos probabilísticos") | ![](/img/icons/status-adopted.svg "Muito adotado / prática corrente") |
 
+> **Nota:** Ícones: ![](/img/icons/check.svg) = Sim, ![](/img/icons/cross.svg) = Não, ![](/img/icons/partial.svg) = Parcial/Depende. Os **Status** foram avaliados com base em uso atual na pesquisa e em aplicações práticas.
+<!-- Tabela comparativa solicitada: termina aqui -->
 ## Raciocínio Lógico
 - A IA simbólica usa lógica matemática e teoria dos conjuntos para representar conhecimento.
 - Exemplifica com o conceito de que, se "X é um gato" e "gatos são mamíferos", podemos concluir logicamente que "X é um mamífero".
