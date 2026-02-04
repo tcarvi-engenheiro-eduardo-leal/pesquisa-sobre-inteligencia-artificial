@@ -10,34 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Python',
+    title: 'Chatbot IA híbrido',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
-      <p>
-        Conheça a linguagem de programação Pyton<br></br>
-        Conheças as Bibliotecas desta linguagem direcionadas para:<br></br>
-        Análise de Dados e<br></br>
-        Inteligência Artificial.
-      </p>
-    ),
-  },
-  {
-    title: 'Análise de Dados',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
       <>
-        Conheça conceitos sobre análies de dados.<br></br>
-        Escreva scripts de análise de dados.
+        Chatbot híbrido com consultas a redes neurais "LLM" e com neurosymbolic computing
       </>
     ),
   },
   {
-    title: 'Inteligência Artificial',
+    title: 'Internet das Coisas e IA',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Conheça conceitos sobre Inteligência Artificial.<br></br>
-        Escreva scripts de Inteligência Artificial.
+        Neuro-symbolic AI em devices embarcados. (internet das coisas)
+      </>
+    ),
+  },
+  {
+    title: 'Robótica e IA',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        Neuro-symbolic AI em robôs autônomos.
       </>
     ),
   },

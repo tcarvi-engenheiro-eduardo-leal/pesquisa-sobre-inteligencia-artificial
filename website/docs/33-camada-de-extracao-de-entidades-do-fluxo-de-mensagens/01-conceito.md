@@ -1,0 +1,1 @@
+# Extração de Entidades do Fluxo de Mensagens

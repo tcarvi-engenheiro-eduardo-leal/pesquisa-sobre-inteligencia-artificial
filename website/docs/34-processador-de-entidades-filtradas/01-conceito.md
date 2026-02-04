@@ -1,0 +1,1 @@
+# Processador de Entidades Filtradas
