@@ -1,6 +1,6 @@
 # Posicionamento da IA Neurosimbólica
-- Neurosymbolic Computing mostra-se como uma evolução natural do campo de IA, respondendo críticas por confiança e auditoria dos sistemas de IA baseados em redes neurais.
-- O processamento Neurosimbólico defende que deve-se usar símbolos e lógica para resolver os limites técnicos da Deep Learning (*brittleness* e falta de "entendimento lógico"). A limitação de *brittleness* indica que os modelos neurais LLM podem falhar de forma inesperada e perigosa, devido variações e incertezas presentes nos dados do mundo real. Já o problema do entendimento representa o problema de lógica não percebida por probabilidade de sequências de tokens.
+- Neurosymbolic Computing mostra-se como uma evolução natural do campo de IA, respondendo críticas por **confiança** e **auditoria** dos sistemas de IA baseados em redes neurais.
+- O processamento Neurosimbólico defende que deve-se usar símbolos e lógica para resolver os limites técnicos da Deep Learning (*brittleness* e falta de "entendimento lógico"). A limitação de *brittleness* indica que os modelos neurais LLM podem falhar de forma inesperada e perigosa, devido **variações e incertezas presentes nos dados do mundo real**. Já o problema do entendimento representa a limitação lógica de não perceber, por estatísticas da sequência de tokens, a **lógica de possíveis argumentos ou etapas complexas**.
 - Há atualmente, no âmbito acadêmico, debate paradigmático entre as escolhas por:
     - Representações Distribuídas Neurais
         - vs
@@ -14,7 +14,7 @@
 > luislamb@acm.org  
 > December, 2020  
 
-- Defende que a melhor forma de pensar o avanço dos sistemas de IA não é com este debate paradigmático, mas pensando na forma como o conhecimento deve ser representado para que se aprenda algo e para que se raciocine sobre algo.
+- Defende que a melhor forma de avançar os sistemas de IA não é com este debate paradigmático, mas pensando na **forma como o conhecimento deve ser representado para o ato de aprender algo e para o ato de raciocinar sobre algo**.
 
 - Com base no artigo "Neurosymbolic AI: The 3rd Wave" e no estado da arte sobre processamento neurosimbólico:  
 
@@ -23,8 +23,8 @@
 | | Descrição e Objetivos Principais | Exemplos / Características |
 | :--- | :--- | :--- |
 | 1. **Integração Híbrida & Simbiótica** | Neuronal e simbólico não são apenas conectados, mas se **potencializam**. O sistema usa o melhor de cada paradigma para tarefas específicas. | Usa redes neurais para percepção (visão, linguagem) e lógica para **raciocínio** e **verificação/auditoria** . |
-| 2. **Fundamentação de Símbolos (Symbol Grounding)** | Símbolos abstratos (ex: "cadeira") devem **emergir e ser ancorados** em dados do mundo real (imagens, sensações) processados pelas redes neurais. | Evita "**símbolos vazios**" **sem conexão semântica com o mundo real**. |
-| 3. **Composicionalidade & Generalização** | O sistema deve poder **combinar conceitos aprendidos** para entender e gerar novas situações não vistas durante o treinamento. | Entender "empurrar uma cadeira" ao **conhecer** "empurrar" e "cadeira". **O que significa, conforme processamento neurosimbólico, entender "empurrar uma cadeira"?** |
+| 2. **Fundamentação de Símbolos (Symbol Grounding)** | Símbolos abstratos (ex: "cadeira") devem **emergir e ser ancorados** em dados do mundo real (imagens, sensações). | Evita "**símbolos vazios**" **sem conexão semântica com o mundo real**. |
+| 3. **Composicionalidade & Generalização** | O sistema deve poder **combinar conceitos aprendidos** para entender e gerar novas situações não vistas durante o treinamento. (**possibilidade** de flexibilidade da validação lógica) | Entender "empurrar uma cadeira" ao **conhecer** "empurrar" e "cadeira". **O que significa, conforme processamento neurosimbólico, entender "empurrar uma cadeira"?** |
 | 4. **Explicabilidade por Design** | O raciocínio deve ser **transparente e rastreável**. Decisões podem ser explicadas tanto em termos de dados estatísticos quanto de regras lógicas. **A auditoria só pode ocorrer a partir da definição humana e codificável de regras lógicas.** | Fornecer cadeias de inferência (ex: "Classifiquei como fraude PORQUE a regra X foi violada"). |
 
 ### 🛑 Desafios Principais do Processamento Neurosimbólico 
@@ -32,8 +32,8 @@
 | | Descrição e Objetivos Principais | Exemplos / Características |
 | :--- | :--- | :--- |
 | 1. **Barreira Representacional** | Conciliar **representações distribuídas** (neurais, sub-simbólicas) com **representações localistas** (simbólicas, lógicas) em uma arquitetura **coesa** é complexo. **Como codificar tal sistema?** | **Como um vetor neural se torna um símbolo discreto para o módulo lógico manipular?** Como as diferentes frameworks atuais do mercado codificam esta conversão? Com filtros sobre os tokens e embeddings pré-processados, no fluxo vetorial da rede neural? **Como se codifica este processamento?** |
-| 2. **Escalabilidade do Conhecimento** | Criar e manter **bases de conhecimento simbólico** grandes e consistentes é trabalhoso e difícil de automatizar totalmente. **Como verificar as regras lógicas treinadas automaticamente? E como criar novas regras lógicas?** | O "bottleneck do conhecimento" que limitou a IA simbólica clássica. |
-| 3. **Aprendizado Integrado de Fim a Fim** | Projetar modelos onde os componentes neural e simbólico **aprendam juntos** de forma estável, em vez de serem apenas encaixados. **Como manter o sistema auditável, mesmo com este aprendizado paralelo e acoplado?** | O gradiente da rede neural precisa "fluir" através do módulo lógico, o que é não trivial. **Um sistema de processamento simbólico que incorpora todo o modelo LLM é possível?** |
+| 2. **Escalabilidade do Conhecimento** | Criar e manter **bases de conhecimento simbólico** grandes e consistentes é trabalhoso e difícil de automatizar totalmente. **Como verificar as regras lógicas treinadas automaticamente? E como criar novas regras lógicas, tanto automaticamente quando por codificação humana?** | Este é o "***bottleneck*** **do conhecimento**" que limitou a IA simbólica clássica. Com a maior facilidade da IA Generativa, tal problema de codificação e de design pode ser resolvido? |
+| 3. **Aprendizado Integrado de Fim a Fim** | Projetar modelos onde os componentes neural e simbólico **aprendam juntos** de forma estável, em vez de serem apenas encaixados. **Como manter o sistema auditável, mesmo com este aprendizado paralelo e acoplado?** Qual o melhor design para um sistema de IA auditável, com 100% de confiabilidade?| O gradiente da rede neural precisa "fluir" através do módulo lógico, o que é não trivial. **Um sistema de processamento simbólico que processa todo o fluxo do modelo LLM é possível?** |
 | 4. **Avaliação e Benchmarking** | Falta de **métricas e datasets padronizados** para medir o progresso além da precisão bruta, como ganhos em raciocínio e explicabilidade. | Como comparar objetivamente sistemas com arquiteturas neuro-simbólicas radicalmente diferentes? **Há padrões/frameworks para o processamento neurosimbólico?** |
 
 
@@ -41,20 +41,51 @@
 | | Descrição e Objetivos Principais | Exemplos / Características |
 | :--- | :--- | :--- |
 | 1. **Arquiteturas Modulares e Dinâmicas** | Sistemas onde **módulos especializados** (neurais para tarefas, simbólicos para raciocínio) são ativados dinamicamente conforme a necessidade. **Como codificar o filtro? Com o filtro de assuntos e com geração de botões interativos? Ou com perguntas que funcionam como os botões do atuais agentes de IA?** | Inspirado na unificação/integração entre os padrões psicológicos dos "Sistemas 1 e 2" do cérebro humano (Kahneman), com processamento computacional **Sistema 1 & 2**. Ou seja, executa-se o **processamento lento neurosimbólico 2 sobre os símbolos gerados pelo sistema rápido neural 1.** |
-| 2. **Raciocínio Probabilístico e Senso Comum** | Integrar **lógica com incerteza** para lidar com conhecimento do mundo real, que é muitas vezes incompleto ou aproximado. | Combinar redes bayesianas com representações simbólicas. |
-| 3. **Aprendizado com Poucos Dados e Generalização** | Usar **conhecimento simbólico como guia ou restrição** para o aprendizado neural, reduzindo a necessidade de enormes volumes de dados. | Indução de regras a partir de poucos exemplos ("few-shot learning"). |
-| 4. **Aplicações em Domínios Críticos** | Foco em áreas onde **explicabilidade, segurança e confiança** são obrigatórias: diagnóstico médico, controle de sistemas autônomos, finanças, cibersegurança. | Onde os sistemas de "caixa preta" puramente neurais são inaceitáveis. |
+| 2. **Raciocínio Probabilístico e Senso Comum** | Integrar **lógica com incerteza** para lidar com conhecimento do mundo real, que é muitas vezes incompleto ou aproximado. | Combinar redes bayesianas com representações simbólicas. (Sistema de ia neurosimbólico deve ser flexível para configurar o nível e inferência aceitável, para a auditoria. Como codificar este "***Reasoning Engine***?") |
+| 3. **Aprendizado com Poucos Dados e Generalização** | Usar **conhecimento simbólico como guia ou restrição** para o aprendizado neural, reduzindo a necessidade de enormes volumes de dados. | Indução de regras a partir de poucos exemplos ("few-shot learning") (não entendi...). |
+| 4. **Aplicações em Domínios Críticos** | Foco em áreas onde **explicabilidade, segurança e confiança** são obrigatórias: diagnóstico médico, controle de sistemas autônomos, finanças, cibersegurança. | Onde os sistemas de "caixa preta" puramente neurais são inaceitáveis pois não conseguem gerar produtos confiáveis e auditáveis para a empresa. |
 
-### Estado da Arte Atual do Processamento Neurosimbólico (fluxo com Sistema 1 & 2)
+### Estado da Arte do Processamento Neurosimbólico (fluxo com Sistema 1 & 2)
 - Arquiteturas Possíveis e já implementadas na atualidade:
-    - DeepProbLog
-        - Integração entre sistema 1 e 2 com processamentos probabilísticos
-        - Lógica probabilística
-        - **Como codificar esta integração?**
-    - LTN (logic Tensor Networks)
-        - Integração entre sistema 1 e 2 com processamento diferenciável
-        - Lógica Fuzzy
-        - **Como codificar esta integração?**
+    - Estado da Arte: Padrão Neural-as-Predicate
+        - Exemplos: DeepProbLog, NeurASP e DeepStochLog
+        - *DeepProbLog***
+            - ProbLog é uma extensão probabilistica para o processamento da linguagem Prolog.
+            - Já DeepProbLog é uma extensão do ProbLog em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
+            - Sistema 1:
+                - Gera predicados probabilisticos
+            - Sistema 2:
+                - Processa os predicados com processamento de lógica probabilística.
+            - **Como codificar a integração Sistema 1 & 2?**
+                - Você codifica regras lógicas probabilísticas para processar predicados extraídos das redes neurais.
+                - A codificação do teinamento é mais simples, pois o erro é calculado no nível lógico.
+                    - O sistema não treina a rede neural
+                    - O sistema apenas aprende o que é útil para satisfazer regras lógicas.
+                - Conhecimento necessário do codificador:
+                    - Regras Lógicas
+                    - Cálculos de probabilidade
+                    - Deep Learning
+            - Limitações:
+                - Inferência pode ser computacionalmente pesada
+                - Escalabilidade ainda é um desafio
+    - Estado da Arte: Padrão Logic-as-Loss or Logic-as-Constraint
+        - Exemplos: LTN, Semantic Loss, DL2 e SBR.
+        - **LTN** (***Logic Tensor Networks***)
+            - LTN reinterpreta o processamento da lógica de primeira ordem:
+                - Constante da Lógica -> vetores (embeddings)
+                - Predicados da Lógica -> Funções Neurais
+                - Fórmulas da Lógica -> Funcões Contínuas [0,1]
+                - Valor booleano da Lógica -> Grau de Satisfação
+            - Usa lógica fuzzy diferenciável:
+                - operador AND -> min(a,b)
+                - operador OR -> max(a,b)
+                - operador NOT -> 1-a
+                - operador IMPLIES -> 1-a + b
+            - Em resumo, o processamneto LTN é bastante complexo e requer meses de estudo para entender a forma como transforma o processamento lógico de primeira ordem para o processamento de funções (lógica fuzzy diferenciável).
+            - **Como codificar a integração Sistema 1 & 2?**
+                - Integração entre sistema 1 e 2 com processamento diferenciável.
+                - Uso de funções de frameworks que executam o processamento LTN.
+    - Comparação entre DeepProbLog e LTN:
     - ACT-R
         - Integração entre sistema 1 e 2 com arquitetura cognitiva
         - Tratamento simbólico
