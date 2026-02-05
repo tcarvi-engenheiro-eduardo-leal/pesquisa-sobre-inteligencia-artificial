@@ -42,61 +42,67 @@
 | :--- | :--- | :--- |
 | 1. **Arquiteturas Modulares e Dinâmicas** | Sistemas onde **módulos especializados** (neurais para tarefas, e simbólicos para raciocínio) são ativados dinamicamente conforme a necessidade. **Como codificar o filtro? Com o filtro de assuntos e com geração de botões interativos? Ou com perguntas que funcionam como os botões do atuais agentes de IA, que autorizam a execução de trabalhos?** | Inspirado na conceituação dos padrões psicológicos do "Sistema 1" e do "Sistema 2" do cérebro humano (conforme psicólogo Kahneman). Pode ocorrer execução isolada ou integrada, entre estes dois estados mentais. O estado 1 vincula-se com o design neural de um sistema de IA, e o estado 2 vincula-se com o design simbólico de um sistema de IA. A Unificação entre estes 2 Estados ocorre com a nomenclarura "***System 1 & 2***". Neste processamento integrado, executa-se o **processamento lento neurosimbólico 2 sobre os símbolos gerados pelo sistema rápido neural 1.** O que se debate aqui é como modularizar e como integrar estes dois processamentos. |
 | 2. **Raciocínio Probabilístico e Senso Comum** | Integrar **lógica com incerteza** para lidar com conhecimento do mundo real, que é muitas vezes incompleto ou aproximado. | Combinar redes bayesianas com representações simbólicas. (Sistema de ia neurosimbólico deve ser flexível para configurar o nível e inferência aceitável, para a auditoria. Como codificar este "***Reasoning Engine***?") É um equívoco controlar completamente a definição de todos os possíveis **símbolos** e o **processamento lógico** sobre todos estes símbolos. O que se deve fazer é controlar a inferência aceitável sobre regras lógicas, mediante a escolha da probabilidade aceitável para os símbolos e para os predicados lógicos. O sistema deve permitir este controle humano. E tudo deve ser exposto na camada de auditoria. |
-| 3. **Aprendizado com Poucos Dados e Generalização** | Usar **conhecimento simbólico como guia ou restrição** para o aprendizado neural, reduzindo a necessidade de enormes volumes de dados. | Indução de regras a partir de poucos exemplos ("few-shot learning") (não entendi ainda, onde tal funcionalidade se inseri no design da integração System 1 & 2...). |
+| 3. **Aprendizado com Poucos Dados e Generalização** | Usar **conhecimento simbólico como guia ou restrição** para o aprendizado neural, reduzindo a necessidade de enormes volumes de dados. | Indução de regras a partir de poucos exemplos ("few-shot learning") (não entendi ainda, onde tal funcionalidade se insere no design da integração System 1 & 2...). |
 | 4. **Aplicações em Domínios Críticos** | Foco em áreas onde **explicabilidade, segurança e confiança** são obrigatórias: diagnóstico médico, controle de sistemas autônomos, finanças, cibersegurança. | Onde os sistemas de "caixa preta" puramente neurais são inaceitáveis pois não conseguem gerar produtos confiáveis e auditáveis para a empresa. |
 
 ### Estado da Arte do Processamento Neurosimbólico (fluxo com Sistema 1 & 2)
-- Arquiteturas Possíveis e já implementadas na atualidade:
-    - Estado da Arte: **Padrão** ***Neural-as-Predicate***
-        - Exemplos: DeepProbLog, NeurASP e DeepStochLog
-        - ***DeepProbLog***
-            - ProbLog é uma extensão probabilistica para o processamento da linguagem Prolog.
-            - Já DeepProbLog é uma extensão do ProbLog em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
-            - Sistema 1:
-                - Gera predicados probabilisticos
-            - Sistema 2:
-                - Processa os predicados com processamento de lógica probabilística.
-            - **Como codificar a integração Sistema 1 & 2?**
-                - Você codifica regras lógicas probabilísticas para processar predicados extraídos das redes neurais.
-                - A codificação do teinamento é mais simples, pois o erro é calculado no nível lógico.
-                    - O sistema não treina a rede neural
-                    - O sistema apenas aprende o que é útil para satisfazer regras lógicas.
-                - Conhecimento necessário do codificador:
-                    - Regras Lógicas
-                    - Cálculos de probabilidade
-                    - Deep Learning
-            - Limitações:
-                - Inferência pode ser computacionalmente pesada
-                - Escalabilidade ainda é um desafio
-    - Estado da Arte: **Padrão** ***Logic-as-Loss or Logic-as-Constraint***
-        - Exemplos: LTN, Semantic Loss, DL2 e SBR.
-        - **LTN** (***Logic Tensor Networks***)
-            - LTN reinterpreta o processamento da lógica de primeira ordem:
-                - Constante da Lógica -> vetores (embeddings)
-                - Predicados da Lógica -> Funções Neurais
-                - Fórmulas da Lógica -> Funcões Contínuas [0,1]
-                - Valor booleano da Lógica -> Grau de Satisfação
-            - Usa lógica fuzzy diferenciável:
-                - operador AND -> min(a,b)
-                - operador OR -> max(a,b)
-                - operador NOT -> 1-a
-                - operador IMPLIES -> 1-a + b
-            - Em resumo, o processamneto LTN é bastante complexo e requer meses de estudo para entender a forma como transforma o processamento lógico de primeira ordem para o processamento de funções (lógica fuzzy diferenciável).
-            - **Como codificar a integração Sistema 1 & 2?**
-                - Integração entre sistema 1 e 2 com processamento diferenciável.
-                - Uso de funções de frameworks que executam o processamento LTN.
-    - Comparação entre DeepProbLog e LTN:
-    - ACT-R
-        - Integração entre sistema 1 e 2 com arquitetura cognitiva
-        - Tratamento simbólico
-        - **Como codificar esta integração?**
-    - Soar
-        - Integração entre sistema 1 e 2 com arquitetura cognitiva
-        - Tratamento simbólico
-        - **Como codificar esta integração?** 
-    - **Qual a diferença entre a codificação do fluxo ACT-R e do fluxo Soar?**
-        - Posso inovar a integração ACT-R e Soar com a computação qunântica (IBM), para maior escalabilidade, velocidade?
-<!-- Tabela comparativa solicitada: começa aqui -->
+
+#### Neural-as-Predicate
+- Estado da Arte: **Padrão** ***Neural-as-Predicate***
+    - Exemplos: DeepProbLog, NeurASP e DeepStochLog
+    - ***DeepProbLog***
+        - ProbLog é uma extensão probabilistica para o processamento da linguagem Prolog.
+        - Já DeepProbLog é uma extensão do ProbLog em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
+        - Sistema 1:
+            - Gera predicados probabilisticos
+        - Sistema 2:
+            - Processa os predicados com processamento de lógica probabilística.
+        - **Como codificar a integração Sistema 1 & 2?**
+            - Você codifica regras lógicas probabilísticas para processar predicados extraídos das redes neurais.
+            - A codificação do teinamento é mais simples, pois o erro é calculado no nível lógico.
+                - O sistema não treina a rede neural
+                - O sistema apenas aprende o que é útil para satisfazer regras lógicas.
+            - Conhecimento necessário do codificador:
+                - Regras Lógicas
+                - Cálculos de probabilidade
+                - Deep Learning
+        - Limitações:
+            - Inferência pode ser computacionalmente pesada
+            - Escalabilidade ainda é um desafio
+
+#### Logic-as-Constraint
+- Estado da Arte: **Padrão** ***Logic-as-Loss or Logic-as-Constraint***
+    - Exemplos: LTN, Semantic Loss, DL2 e SBR.
+    - **LTN** (***Logic Tensor Networks***)
+        - LTN reinterpreta o processamento da lógica de primeira ordem:
+            - Constante da Lógica -> vetores (embeddings)
+            - Predicados da Lógica -> Funções Neurais
+            - Fórmulas da Lógica -> Funcões Contínuas [0,1]
+            - Valor booleano da Lógica -> Grau de Satisfação
+        - Usa lógica fuzzy diferenciável:
+            - operador AND -> min(a,b)
+            - operador OR -> max(a,b)
+            - operador NOT -> 1-a
+            - operador IMPLIES -> 1-a + b
+        - Em resumo, o processamneto LTN é bastante complexo e requer meses de estudo para entender a forma como transforma o processamento lógico de primeira ordem para o processamento de funções (lógica fuzzy diferenciável).
+        - **Como codificar a integração Sistema 1 & 2?**
+            - Integração entre sistema 1 e 2 com processamento diferenciável.
+            - Uso de funções de frameworks que executam o processamento LTN.
+#### ACT-R
+- ACT-R
+    - Integração entre sistema 1 e 2 com arquitetura cognitiva
+    - Tratamento simbólico
+    - **Como codificar esta integração?**
+
+#### SOAR
+- Soar
+    - Integração entre sistema 1 e 2 com arquitetura cognitiva
+    - Tratamento simbólico
+    - **Como codificar esta integração?** 
+- **Qual a diferença entre a codificação do fluxo ACT-R e do fluxo Soar?**
+    - Posso inovar a integração ACT-R e Soar com a computação qunântica (IBM), para maior escalabilidade, velocidade?
+
+#### Padrões do Mercado
 | **Padrão** | **É Explicitamente Simbólico** | **Faz Processamento Diferenciável** | **Faz Processamento Probabilístico** | **Status Atual** |
 |---|:---:|:---:|:---:|:---:|
 | Neural-as_Predicate | ![](/img/icons/check.svg "Sim") | ![](/img/icons/check.svg "Sim") | ![](/img/icons/check.svg "Sim — valores contínuos / fuzzy") | ![](/img/icons/status-emerging.svg "Emergente") |
@@ -107,7 +113,7 @@
 | LLM + Símbolos | ![](/img/icons/check.svg "Sim — integração com módulos simbólicos") | ![](/img/icons/partial.svg "Parcial — LLM é diferenciável; módulos simbólicos podem não ser") | ![](/img/icons/check.svg "Sim — LLMs são modelos probabilísticos") | ![](/img/icons/status-adopted.svg "Muito adotado / prática corrente") |
 
 > **Nota:** Ícones: ![](/img/icons/check.svg) = Sim, ![](/img/icons/cross.svg) = Não, ![](/img/icons/partial.svg) = Parcial/Depende. Os **Status** foram avaliados com base em uso atual na pesquisa e em aplicações práticas.
-<!-- Tabela comparativa solicitada: termina aqui -->
+
 ## Raciocínio Lógico
 - A IA simbólica usa lógica matemática e teoria dos conjuntos para representar conhecimento.
 - Exemplifica com o conceito de que, se "X é um gato" e "gatos são mamíferos", podemos concluir logicamente que "X é um mamífero".
