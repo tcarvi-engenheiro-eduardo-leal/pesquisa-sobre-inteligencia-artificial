@@ -51,10 +51,12 @@
 - Estado da Arte: **Padrão** ***Neural-as-Predicate***
     - Exemplos: DeepProbLog, NeurASP e DeepStochLog
     - ***DeepProbLog***
-        - ProbLog é uma extensão probabilistica para o processamento da linguagem Prolog.
-        - Já DeepProbLog é uma extensão do ProbLog em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
+        - **ProbLog** é uma **extensão probabilística** para o processamento lógico da linguagem Prolog.
+        - Já **DeepProbLog** é uma **extensão do ProbLog** em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
         - Sistema 1:
             - Gera predicados probabilisticos
+            - A probalidade dos predicados é definida pela rede neural.
+            - Então, o output desta etapa é: predicados lógicos com indicação de suas probabilidades.
         - Sistema 2:
             - Processa os predicados com processamento de lógica probabilística.
         - **Como codificar a integração Sistema 1 & 2?**
@@ -69,6 +71,13 @@
         - Limitações:
             - Inferência pode ser computacionalmente pesada
             - Escalabilidade ainda é um desafio
+        - Casos de uso atuais:
+            - neuro-symbolic reasoning
+            - sistemas híbridos explicáveis
+        - Implementação em Python
+        - Integração com PyTorch
+        - Usa ProbLog, PySDD e SWI-Prolog
+        - Código-fonte: ML-KUEeuven/deepproblog
 
 #### Logic-as-Constraint
 - Estado da Arte: **Padrão** ***Logic-as-Loss or Logic-as-Constraint***
