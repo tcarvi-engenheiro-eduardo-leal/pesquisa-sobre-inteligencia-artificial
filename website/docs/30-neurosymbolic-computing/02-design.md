@@ -13,56 +13,80 @@
     - Aplicação Chatbot
     - Servidor para transporte de mensagens
     - LLM
-- Nesta arquitetura, o LLM não é o tomador de decisão final. 
-- Ele atua como um **Parser de Intenção**.
-- O aplicativo se comunicará com o LLM e incorporará, em servidores Cloud da empresa, as seguintes funcionalidades de DeepProbLog:
-    - definir os predicados lógicos, a partir das conversas entre usuários de LLM
-    - definir probabilidades para os predicados lógicos
-* **Papel:** Receber textos e tokens da linguagem natural (ex: "Leve o remédio para o quarto 202, mas não corra nos corredores") e sistematizar um rascunho de intenções e de predicados lógicos.
-- Sistema neural rápido S1, com rota, fallback e políticas
-- Sistema consulta conhecimento existente IA-RAG
-- Sistema propõe operadores plausíveis
-    - Depois de Fluxo IA-RAG, Filtros em servidores locais, interatividade e LLM
+- O chatbot deve se comunicar com LLM usando o seguinte prompt:
+    - System_Prompt:
+        - Tendo como base a comunicação do User_Prompt, defina:
+            - Intent: intenção do Usuários
+            - Action ou Actions solicitadas
+            - Entidade Sujeita/Ativa de cada Action
+            - Entidade Objeto/Passiva de cada Action
+            - Circunstâncias de cada Action
+    - User Prompt:
+        - Envio de mensagens, com alguns filtros de servidor instalado localmente na Cloud.
+- O LLM atua como um **Parser de Intenção**.
+- Descrição do compomente:
+    - Sistema neural rápido S1, com rota, fallback e políticas
+    - Sistema consulta conhecimento existente IA-RAG
+    - Sistema propõe operadores plausíveis
+    - Faz uso de Fluxo IA-RAG, filtros em servidores locais, interatividade do usuário.
 
-### 2. Ontologia Cadastrada (A "Constituição" do Sistema)
-- Instalação em Ambiente cloud.
-- Há uma parte do **conhecimento que é estático e axiomático**.
-    - **O que contém:** Hierarquias (Todo `Robô` é um `Atuador`), restrições (`VelocidadeMáxima` de um `Robô` em `CorredorHospitalar` = 1.0m/s) e topologia (mapa de salas e conexões).
-- E há outra parte que representa descrições momentâneas.
-    - **Estabilidade:** Ela não muda a menos que o desenvolvedor altere. Ela é a "âncora de realidade".
-
-### 3. Extração de Entidades a partir da comunicação com LLM (O Alinhador Semântico)
+### 2. Extração de Entidades a partir da comunicação com LLM (O Alinhador Semântico)
 - Execução em Ambiente cloud.
 - Este módulo pega a saída do LLM e a "limpa" usando a Ontologia como dicionário.
     - **Processo:** Se o LLM disse "quarto duzentos e dois", o extrator mapeia isso para o identificador único `room_202` definido na Ontologia.
 - **Filtragem de Ruído:** Se o LLM mencionar algo que não existe na Ontologia (ex: "use o teletransporte"), o extrator ignora ou levanta um erro, pois não há mapeamento para esse conceito.
 
+### 3. Ontologia Cadastrada (A "Constituição" do Sistema)
+- Execução em computadores quânticos da IBM, usando qiskit 2.2.
+- Há uma parte do **conhecimento que é estático e axiomático**.
+    - **O que contém:** Hierarquias (Todo `Robô` é um `Atuador`), restrições (`VelocidadeMáxima` de um `Robô` em `CorredorHospitalar` = 1.0m/s) e topologia (mapa de salas e conexões).
+- E há outra parte que representa descrições momentâneas.
+    - **Estabilidade:** Ela não muda a menos que o desenvolvedor altere. Ela é a "âncora de realidade".
+- é usado como padrão de referência para intenções, junto com regras que modificam a probabilidade do padrão ser uma intenção cadastrada. 
+
 ### 4. Processador de Mensagens Filtradas (Semantic Grounding)
 - Execução em computadores quânticos da IBM, usando qiskit 2.2.
-- É o funil que garante que a intenção do LLM é **fisicamente e logicamente possível**.
+- Executado pela biblioteca DeepProbLog
+- É o funil que garante que a intenção do LLM é **fisicamente e logicamente possível**, devido a sua probabiliade, diante dos padrões da ontologia.
     - **Verificação de Estado:** O Filtro consulta o estado atual (telemetria) do Executor.
     - "O médico pediu para levar o remédio, mas o braço robótico está ocupado?".
 - **Rejeição Prematura:** Se a mensagem filtrada violar um axioma básico (ex: mover para uma zona proibida), a instrução é descartada antes mesmo de chegar ao raciocínio complexo.
 
-### 5. Reasoning Engine (O Juiz Lógico)
+### 5. Reasoning Engine da Itenção (O Juiz Lógico de DeepProbLog)
 - Execução em computadores quânticos da IBM, usando qiskit 2.2.
-- Com as entidades limpas e a intenção validada, o Motor de Raciocínio (como um *SAT Solver* ou *Prolog Engine*) executa a inferência.
+- Fornecido por DeepProbLog.
 
-### 6. Auditoria sobre o Reasoning Engine
+### 6. Auditoria sobre o Reasoning Engine da Intenção (auditoria de DeepProblLg)
+- Execução em Ambiente cloud.
+- Fornecido por DeepProbLog.
+
+### 7. Reasoning Engine da Execução (O Juiz Lógico da Aplicação)
 - Execução em computadores quânticos da IBM, usando qiskit 2.2.
+- Com as entidades limpas e a intenção validada, o Motor de Raciocínio (como um *SAT Solver* ou *Prolog Engine*) executa a inferência final decisora.
+
+### 8. Auditoria sobre o Reasoning Engine da Execução
+- Execução em Ambiente cloud.
 - **Cadeia de Pensamento:** Ele não apenas executa; ele planeja. "Para chegar em `room_202`, devo atravessar `hallway_A`. A Ontologia diz que `hallway_A` está em manutenção. Conclusão: Rota alternativa necessária".
-- **Determinismo:** Diferente do LLM, se você der a mesma entrada e o mesmo estado, o Reasoning Engine dará **sempre** a mesma saída.
+- **Determinismo:** Diferente do LLM, se você der a mesma entrada e o mesmo estado, o Reasoning Engine dará **sempre** a mesma saída. Tal output de auditoria estará na cloud da empresa.
 
-### 7. Executor de Comandos (A Ponte para o Mundo Real)
+### 9. Agente Executor de Comandos (A Ponte para o Mundo Real)
 - Execução em Ambiente cloud.
 - Divide-se em dois canais:
     - **Verbal:** O LLM recebe de volta o plano do Reasoning Engine e o traduz em uma resposta amigável para o usuário ("Estou indo por um caminho alternativo pois o corredor principal está fechado").
     - **Físico:** Comandos de baixo nível (ROS, APIs de hardware) que movem motores e sensores.
 
-### 8. Treinamento para a recusa de Decisões do Reasoning Engine e para a execução do agente
+### 10. Treinamento do DeepProbLog
 - Execução em Ambiente cloud.
+- Treinamento para indicação de probabilidades.
+
+### 11. Treinamento para a recusa de Decisões do Reasoning Engine e para a execução do agente
+- Execução em computadores quânticos da IBM, usando qiskit 2.2.
 - Treinamento para replicação da recusa de execuções
 - Treinamento sobre os passos de execução do agente que recebe ordens do Reasoning Engine.
+
+### 12. Treinamento do Agente Executor
+- Na cloud da Empresa
+- Treinamento dos passos a serem executados pelo agente.
 
 ---
 
