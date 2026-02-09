@@ -25,7 +25,7 @@
 | 1. **Integração Híbrida** | Neuronal e simbólico não são apenas conectados, mas se **potencializam**. O sistema usa o melhor de cada um destes designs para tarefas específicas. | Usa redes neurais para percepção (visão, linguagem) e lógica para **raciocínio** e **verificação/auditoria** . |
 | 2. **Fundamentação de Símbolos (Symbol Grounding)** | Símbolos abstratos (ex: "cadeira") devem **emergir e ser ancorados** em dados do mundo real (imagens, sensações). | Evita "**símbolos vazios**" **sem conexão semântica com o mundo real**. |
 | 3. **Composicionalidade e Generalização no Entendimento dos Símbolos** | O sistema deve poder **combinar conceitos aprendidos** para entender e gerar novas situações não vistas durante o treinamento. (**possibilidade** de flexibilidade da validação lógica) | Entender "empurrar uma cadeira" ao **conhecer** "empurrar" e "cadeira". **O que significa, conforme processamento neurosimbólico, entender "empurrar uma cadeira"?** |
-| 4. **Explicabilidade por Design** | O raciocínio deve ser **transparente e rastreável**. Decisões podem ser explicadas tanto em termos de dados estatísticos quanto de regras lógicas. **A auditoria só pode ocorrer a partir da definição humana e codificável de regras lógicas.** | Fornecer cadeias de inferência (ex: "Classifiquei como fraude PORQUE a regra X foi violada"). |
+| 4. **Explicabilidade por Design** | O raciocínio deve ser **transparente e rastreável**. Decisões podem ser explicadas tanto em termos de dados estatísticos quanto de regras lógicas. **A auditoria mais formal só pode ocorrer a partir da definição humana e sendo codificada em regras lógicas.** | Fornecer cadeias de inferência (ex: "Classifiquei como fraude PORQUE a regra X foi violada"). |
 
 ### 🛑 Desafios Principais do Processamento Neurosimbólico 
 
@@ -53,16 +53,16 @@
     - ***DeepProbLog***
         - **ProbLog** é uma **extensão probabilística** para o processamento lógico da linguagem Prolog.
         - Já **DeepProbLog** é uma **extensão do ProbLog** em que predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
-        - Sistema 1:
+        - Processamento do Sistema Neural:
             - Gera predicados probabilisticos
             - A probalidade dos predicados é definida pela rede neural.
             - Então, o output desta etapa é: predicados lógicos com indicação de suas probabilidades.
-        - Sistema 2:
+        - Processamento do Sistema Simbólico:
             - Processa os predicados com processamento de lógica probabilística.
         - **Como codificar a integração Sistema 1 & 2?**
             - Você codifica regras lógicas probabilísticas para processar predicados extraídos das redes neurais.
             - A codificação do teinamento é mais simples, pois o erro é calculado no nível lógico.
-                - O sistema não treina a rede neural
+                - O sistema treina a rede neural apenas indiretamente, usando o erro calculado no nível lógico-probabilístico.
                 - O sistema apenas aprende o que é útil para satisfazer regras lógicas.
             - Conhecimento necessário do codificador:
                 - Regras Lógicas
