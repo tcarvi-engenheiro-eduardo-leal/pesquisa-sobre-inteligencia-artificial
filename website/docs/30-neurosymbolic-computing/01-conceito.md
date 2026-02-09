@@ -144,7 +144,7 @@
 - O raciocínio simbólico permite rastrear exatamente por que uma resposta foi dada, algo que os LLMs (caixas-pretas) não conseguem fazer facilmente.
 
 ### Eficiência Energética:
-- Consultar um Grafo de Conhecimento é ordens de magnitude mais eficiente do que processar uma resposta via LLM.
+- Para consultas fractuais bem estruturadas, grafos de conhecimento tendem a ser muito mais eficientes do que inferências via LLM.
 
 ### 💡 Síntese: O Caminho para a Próxima Onda em IA
 A visão apresentada no artigo é que a **IA Neurosimbólica não é apenas uma técnica a mais, mas uma mudança de paradigma**. Seus princípios buscam restaurar a **semântica, a composicionalidade e a explicabilidade** no coração da IA. Os desafios são profundos, pois envolvem reconciliar duas linguagens computacionais fundamentalmente diferentes. As direções futuras apontam para sistemas mais **modulares, dinâmicos e focados em raciocínio**, que transcendam o paradigma atual de "aprendizado estatístico de correlações em dados massivos".
