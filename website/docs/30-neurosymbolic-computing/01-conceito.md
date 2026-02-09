@@ -52,7 +52,7 @@
     - Exemplos: DeepProbLog, NeurASP e DeepStochLog
     - ***DeepProbLog***
         - **ProbLog** é uma **extensão probabilística** para o processamento lógico da linguagem Prolog.
-        - Já **DeepProbLog** é uma **extensão do ProbLog** em que os predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
+        - Já **DeepProbLog** é uma **extensão do ProbLog** em que predicados probabilisticos são extraídos do processamento feito pelas redes neurais.
         - Sistema 1:
             - Gera predicados probabilisticos
             - A probalidade dos predicados é definida pela rede neural.
