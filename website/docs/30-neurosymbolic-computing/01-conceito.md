@@ -108,8 +108,6 @@
     - Integração entre sistema 1 e 2 com arquitetura cognitiva
     - Tratamento simbólico
     - **Como codificar esta integração?** 
-- **Qual a diferença entre a codificação do fluxo ACT-R e do fluxo Soar?**
-    - Posso inovar a integração ACT-R e Soar com a computação qunântica (IBM), para maior escalabilidade, velocidade?
 
 #### Padrões do Mercado
 | **Padrão** | **É Explicitamente Simbólico** | **Faz Processamento Diferenciável** | **Faz Processamento Probabilístico** | **Status Atual** |
@@ -152,7 +150,7 @@ A visão apresentada no artigo é que a **IA Neurosimbólica não é apenas uma 
 ## Futuro: Sistemas Híbridos (Neuro-Simbólicos)
 - Dual Process Models: 
     - Ele cita a ideia de "Raciocínio Rápido e Lento" de Daniel Kahneman.
-    - O LLM seria o processo rápido (intuitivo, mas propenso a erros), enquanto o componente simbólico seria o processo lento (deliberativo e confiável).
+    - O LLM (sistema 1) pode ser tratado como o processo rápido (intuitivo, mas propenso a erros), enquanto que o sistema 2 pode ser tratado como o componente simbólicoprocesso lento (deliberativo e confiável).
 - Arquitetura Híbrida:
-    - O futuro aponta para o uso de LLMs para interface de linguagem natural (traduzindo perguntas em queries), mas utilizando Grafos de Conhecimento para fornecer as respostas factuais.
+    - A literatura atual sobre inteligência artificial aponta para o uso de LLMs como interface de linguagem natural (traduzindo perguntas em queries), e utilizando Grafos de Conhecimento para fornecer as respostas factuais.
 - Ontologias e planejamento são essenciais para criar sistemas de IA que sejam confiáveis, eficientes e explicáveis.
